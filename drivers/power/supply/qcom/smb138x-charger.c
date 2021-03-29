@@ -1587,7 +1587,7 @@ static int smb138x_probe(struct platform_device *pdev)
 		return rc;
 	}
 
-	chip->chg.mode = (enum smb_mode) id->data;
+	chip->chg.mode = *(enum smb_mode*) id->data;
 	switch (chip->chg.mode) {
 	case PARALLEL_MASTER:
 		rc = smb138x_master_probe(chip);
